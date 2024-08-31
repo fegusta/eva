@@ -1,0 +1,56 @@
+<div class="shopping-list">
+  <h2>Minha Lista de Compras</h2>
+
+  <!-- Formulário para Adicionar Novo Item -->
+   <div class="conaiter-include-item">
+     <form (ngSubmit)="addItem()" #itemForm="ngForm">
+       <div>
+         <label for="name">Nome do Item:</label>
+         <input type="text" id="name" [(ngModel)]="newItem.name" name="name" required />
+       </div>
+   
+       <div>
+         <label for="category">Categoria:</label>
+         <select id="category" [(ngModel)]="newItem.category" name="category" required>
+           <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+         </select>
+       </div>
+   
+       <div>
+         <label>
+           <input type="checkbox" [(ngModel)]="newItem.purchased" name="purchased" />
+           Comprado
+         </label>
+       </div>
+   
+       <button type="submit" [disabled]="!itemForm.form.valid">Adicionar Item</button>
+     </form>
+   </div>
+  
+  <!-- Usando o Componente Reutilizável -->
+   <div class="grid-list">
+     <app-category-section 
+     *ngFor="let category of categories" 
+     [category]="category" 
+     [items]="getItemsByCategory(category)"
+     [backgroundColor]="getCategoryTheme(category)"
+     (itemClick)="markAsPurchased($event)">
+     </app-category-section>
+   </div>
+
+   <ng-template #modalContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Informe o Valor Pago</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('cancel')"></button>
+    </div>
+    <div class="modal-body">
+      <label for="paidAmount">Valor Pago:</label>
+      <input type="number" id="paidAmount" class="form-control" />
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="modal.close('save')">Salvar</button>
+    </div>
+  </ng-template>
+
+</div>

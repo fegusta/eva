@@ -1,0 +1,15 @@
+<div *ngIf="items && items.length > 0">
+    <div class="category-section" [ngStyle]="{'background-color': backgroundColor}">
+        <h3 class="category-title">{{ category }}</h3>
+        <ul *ngIf="items.length > 0">
+          <li *ngFor="let item of items" [ngClass]="{'item': true, 'purchased': item.purchased}" (click)="onItemClick(item)">
+            {{ item.name }} - {{ item.dateAdded}}
+            <div *ngIf="item.lastPaidAmount">
+              <p>Último Valor Pago: {{ item.lastPaidAmount | currency }}</p>
+              <p>Data da Última Compra: {{ item.lastPurchaseDate | date }}</p>
+            </div>
+          </li>
+        </ul>
+    </div>
+</div>
+  

@@ -1,0 +1,99 @@
+.shopping-list {
+  /* max-width: 600px; */
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.conaiter-include-item {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+
+}
+
+form {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input[type="text"], form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:disabled {
+  background-color: #cccccc;
+}
+
+.category-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.category-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.category-section:nth-child(1) {
+  background-color: #f9c2ff; /* Pastel lilás para Higiene */
+}
+
+.category-section:nth-child(2) {
+  background-color: #ffccb6; /* Pastel laranja para Comida */
+}
+
+.category-section:nth-child(3) {
+  background-color: #c2e9fb; /* Pastel azul para Limpeza */
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li.item {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+li.item:last-child {
+  border-bottom: none;
+}
+
+.grid-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 150px 0 150px;
+  
+}
